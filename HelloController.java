@@ -1,13 +1,16 @@
-package com.example.demo;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class HelloController {
+@RequestMapping("/api")
+public class MainController {
 
     @GetMapping("/hello")
-    public String hello() {
-        return "Hello, World!";
+    public String sayHello() {
+        return "Hello, Spring!";
+    }
+
+    @PostMapping("/message")
+    public String postMessage(@RequestBody String message) {
+        return "Received: " + message;
     }
 }
